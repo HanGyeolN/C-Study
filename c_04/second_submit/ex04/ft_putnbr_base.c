@@ -6,11 +6,11 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 19:31:34 by hna               #+#    #+#             */
-/*   Updated: 2020/01/28 20:49:19 by hna              ###   ########.fr       */
+/*   Updated: 2020/02/09 12:35:05 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_string.h"
 
 long long int	ft_strlen(char *str)
 {
@@ -78,15 +78,16 @@ char			*int_to_str_base(int nbr, char *base, char *str)
 	return (str);
 }
 
-void			ft_putnbr_base(int nbr, char *base)
+char			*ft_itoa_base(int nbr, char *base, int malloc_size)
 {
-	char			str_nbr[50];
-	long long int	str_len;
+	char			*str_nbr;
 
+	str_nbr = (char *)malloc(malloc_size * sizeof(char));
 	if (check_base(base) == 0)
-		return ;
+	{
+		ft_putstr_err("[-] : plase check the base : if_itoa_base.c");
+		return (0);
+	}
 	int_to_str_base(nbr, base, str_nbr);
-	str_len = ft_strlen(str_nbr);
-	while (--str_len >= 0)
-		write(1, &str_nbr[str_len], 1);
+	return (str_nbr);
 }
