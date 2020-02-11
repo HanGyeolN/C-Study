@@ -54,10 +54,10 @@ void	ft_cat_re(char *pname)
 	{
 		if (errno)
 		{
-			ft_putstr(basename(pname));
-			ft_putstr(": stdin: ");
-			ft_putstr(strerror(errno));
-			ft_putstr("\n");
+			ft_putstr_err(basename(pname));
+			ft_putstr_err(": stdin: ");
+			ft_putstr_err(strerror(errno));
+			ft_putstr_err("\n");
 			return ;
 		}
 		write(1, &buf, 1);

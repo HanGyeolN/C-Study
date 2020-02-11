@@ -1,13 +1,15 @@
 CC = gcc
 NAME = ft_display_file
 CFLAGS = -Wall -Werror -Wextra
-HEADER_DIR = includes
-LIB_DIR = ./includes
-SRCS = srcs/ft_display_file.c srcs/main.c
+HEAD_DIR = includes
+SRC = ft_display_file.c
+SRC_DIR = srcs
+
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(SRCS:%.c=%.o)
 
-$(NAME) : includes/libft.a includes/ft.h
-	$(CC) $(CFLAGS) $(SRCS) -L$(LIB_DIR) -lft -I $(HEADER_DIR) -o $(NAME)
+$(NAME) :
+	$(CC) $(CFLAGS) $(SRCS) -I $(HEAD_DIR) -o $(NAME)
 
 all : $(NAME)
 
