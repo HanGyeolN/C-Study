@@ -1,6 +1,0 @@
-Credentials cache: API:3CD621C1-46D2-4C39-A3DB-ED0C02CE42CB
-        Principal: hna@42SEOUL.KR
-
-  Issued                Expires               Principal
-Jan 20 14:00:53 2020  Jan 21 00:00:53 2020  krbtgt/42SEOUL.KR@42SEOUL.KR
-Jan 20 14:00:55 2020  Jan 21 00:00:53 2020  HTTP/student-storage.42seoul.kr@42SEOUL.KR
