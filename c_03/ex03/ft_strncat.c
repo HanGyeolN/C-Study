@@ -6,7 +6,7 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 14:52:24 by hna               #+#    #+#             */
-/*   Updated: 2020/01/27 15:12:10 by hna              ###   ########.fr       */
+/*   Updated: 2020/01/27 22:31:44 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char			*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	dest_len = ft_strlen(dest);
-	while (src != '\0' && i < nb)
+	while (src[i] != '\0' && i < nb)
 	{
 		dest[i + dest_len] = src[i];
 		i++;
