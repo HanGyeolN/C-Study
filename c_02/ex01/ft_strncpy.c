@@ -6,41 +6,50 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 15:27:37 by hna               #+#    #+#             */
-/*   Updated: 2020/02/03 21:57:46 by hna              ###   ########.fr       */
+/*   Updated: 2020/02/03 21:51:25 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char	*ft_strncpy(char *dest, const char *src, int n)
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int i;
+	unsigned int	i;
+	char			*new_str;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
 	while (i < n)
 	{
-		dest[i] = '\0';
-		i++;
+		if (src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		else
+		{
+			while (i < n)
+			{
+				dest[i] = '\0';
+				i++;
+			}			
+		}
 	}
-	return (dest);
+	new_str = dest;
+	return (new_str);
 }
 #include <stdio.h>
 #include <string.h>
 int main(int argc, char **argv)
 {
 	int	i;
-	char s1[10];
-	char s2[10];
+	char *s1;
+	char *s2;
 
 	i = 0;
 
 	while (i < 10)
 	{
 		printf("=== %d ===\n", i);
-		ft_strncpy(s1, "abcd", i);
-		strncpy(s2, "abcd", i);
+		s1 = ft_strncpy(s1, "abcd", i);
+		s2 = strncpy(s2, "abcd", i);
 		printf("%s\n", s1);
 		printf("%s\n", s2);
 		i++;
