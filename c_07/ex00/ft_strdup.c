@@ -6,7 +6,7 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 17:41:48 by hna               #+#    #+#             */
-/*   Updated: 2020/02/02 16:07:52 by hna              ###   ########.fr       */
+/*   Updated: 2020/02/03 13:33:49 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strdup(char *src)
 	char	*new;
 
 	size = ft_strlen(src);
-	new = malloc(size);
+	new = (char *)malloc(sizeof(char) * size);
 	if (new == 0)
 		return (0);
 	return (ft_strcpy(new, src));

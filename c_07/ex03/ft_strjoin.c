@@ -6,7 +6,7 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 21:03:41 by hna               #+#    #+#             */
-/*   Updated: 2020/02/02 21:40:30 by hna              ###   ########.fr       */
+/*   Updated: 2020/02/03 11:08:04 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,13 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	total_len = get_total_strlen(size, strs, sep);
 	dest = (char *)malloc(sizeof(char) * total_len);
-	while (i < size - 1)
+	dest[0] = '\0';
+	while (i < size)
 	{
 		ft_strcat(dest, strs[i]);
-		ft_strcat(dest, sep);
+		if (i != size - 1)
+			ft_strcat(dest, sep);
 		i++;
 	}
-	ft_strcat(dest, strs[i]);
 	return (dest);
 }

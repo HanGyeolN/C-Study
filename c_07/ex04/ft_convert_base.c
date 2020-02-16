@@ -6,22 +6,22 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:57:26 by hna               #+#    #+#             */
-/*   Updated: 2020/02/02 22:52:30 by hna              ###   ########.fr       */
+/*   Updated: 2020/02/03 15:59:36 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		is_in(char c, char *base);
-int		is_valid(char *base);
-int		ft_strlen(char *str);
+int				is_in(char c, char *base);
+int				is_valid(char *base);
+long long int	ft_strlen(char *str);
 
-int		base_nbr_to_lint(char *nbr, char *base_from)
+long long int	base_nbr_to_lint(char *nbr, char *base_from)
 {
-	int	ret;
-	int	base_len;
-	int	sign;
-	int	i;
+	long long int	ret;
+	long long int	base_len;
+	long long int	sign;
+	int				i;
 
 	sign = 1;
 	i = 0;
@@ -39,17 +39,17 @@ int		base_nbr_to_lint(char *nbr, char *base_from)
 	}
 	while (is_in(nbr[i], base_from) != -1)
 	{
-		ret = ret * base_len + is_in(nbr[i], base_from);
+		ret = ret * base_len + (long long int)is_in(nbr[i], base_from);
 		i++;
 	}
 	return (sign * ret);
 }
 
-int		get_mem_size(int nbr, int base_len)
+int				get_mem_size(long long int nbr, long long int base_len)
 {
-	int		mem_size;
+	int				mem_size;
 
-	mem_size = 0;
+	mem_size = 1;
 	if (nbr == 0)
 		return (1);
 	if (nbr < 0)
@@ -65,11 +65,12 @@ int		get_mem_size(int nbr, int base_len)
 	return (mem_size);
 }
 
-void	set_base_nbr(int nbr, char *base_to, char *dest, int size)
+void			set_base_nbr(long long int nbr,
+		char *base_to, char *dest, int size)
 {
-	int	i;
-	int	base_len;
-	int	mod;
+	int				i;
+	long long int	base_len;
+	long long int	mod;
 
 	i = 0;
 	base_len = ft_strlen(base_to);
@@ -90,27 +91,27 @@ void	set_base_nbr(int nbr, char *base_to, char *dest, int size)
 	dest[size] = '\0';
 }
 
-char	*lint_to_base_nbr(int nbr, char *base_to)
+char			*lint_to_base_nbr(long long int nbr, char *base_to)
 {
-	int		str_size;
-	char	*ret;
-	int		base_len;
+	int				str_size;
+	char			*ret;
+	long long int	base_len;
 
 	base_len = ft_strlen(base_to);
 	str_size = get_mem_size(nbr, base_len);
 	ret = (char *)malloc(sizeof(char) * str_size);
-	set_base_nbr(nbr, base_to, ret, str_size);
+	set_base_nbr(nbr, base_to, ret, str_size - 1);
 	return (ret);
 }
 
-char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+char			*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	long long int	int_nbr;
+	long long int	lld_ret;
 	char			*ret;
 
-	if (is_valid(base_from) == 0 || is_valid(base_to) == 0)
+	if (is_valid(base_from) == 0 || is_valid(base_to) == 0 || !nbr)
 		return (0);
-	int_nbr = base_nbr_to_lint(nbr, base_from);
-	ret = lint_to_base_nbr((int)int_nbr, base_to);
+	lld_ret = base_nbr_to_lint(nbr, base_from);
+	ret = lint_to_base_nbr(lld_ret, base_to);
 	return (ret);
 }
