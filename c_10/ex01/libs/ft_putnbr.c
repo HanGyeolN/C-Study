@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/06 13:50:56 by hna               #+#    #+#             */
-/*   Updated: 2020/02/06 21:54:19 by hna              ###   ########.fr       */
+/*   Created: 2020/01/28 11:04:38 by hna               #+#    #+#             */
+/*   Updated: 2020/02/06 11:28:49 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include "ft_string.h"
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <string.h>
-# include <libgen.h>
-# include <errno.h>
+void	ft_putnbr(int nb)
+{
+	long long int n;
+	long long int div;
+	long long int mod;
 
-int		ft_is_dir(char *fpath);
-int		ft_get_filesize(char *fpath);
-
-#endif
+	n = (long long int)nb;
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar('-');
+	}
+	div = n / 10;
+	mod = n % 10;
+	if (n >= 10)
+	{
+		ft_putnbr(div);
+	}
+	ft_putchar(mod + '0');
+}

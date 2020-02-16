@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/05 18:09:19 by hna               #+#    #+#             */
-/*   Updated: 2020/02/06 20:04:15 by hna              ###   ########.fr       */
+/*   Created: 2020/01/24 13:17:57 by hna               #+#    #+#             */
+/*   Updated: 2020/01/26 12:52:04 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+char		*ft_strcpy(char *dest, char *src)
+{
+	int i;
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <errno.h>
-# include <string.h>
-# include <libgen.h>
-
-# define STDIN 0
-# define STDOUT 1
-# define STDERR 2
-
-int		ft_is_dir(char *fpath);
-int		ft_get_filesize(char *fpath);
-void	ft_init_str(char *str, int size);
-
-#endif
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = src[i];
+	return (dest);
+}

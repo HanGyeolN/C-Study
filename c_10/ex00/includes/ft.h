@@ -16,8 +16,4 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_display_file(int argc, char **argv);
-
 #endif

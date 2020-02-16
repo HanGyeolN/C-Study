@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_dir.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/06 18:50:24 by hna               #+#    #+#             */
-/*   Updated: 2020/02/06 20:23:56 by hna              ###   ########.fr       */
+/*   Created: 2020/01/27 10:52:48 by hna               #+#    #+#             */
+/*   Updated: 2020/02/06 10:47:53 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
-#include "ft.h"
 
-int		ft_is_dir(char *target)
+char	*ft_strcat(char *dest, char *src)
 {
-	int		fd;
-	char	test;
+	int i;
+	int dest_len;
 
-	errno = 0;
-	fd = open(target, O_RDONLY);
-	if (fd == -1)
+	i = 0;
+	dest_len = ft_strlen(dest);
+	while (src[i] != '\0')
 	{
-		ft_putstr("error in ft_is_dir\n");
-		return (-1);
+		dest[i + dest_len] = src[i];
+		i++;
 	}
-	else
-	{
-		read(fd, &test, 1);
-		if (errno)
-		{
-			close(fd);
-			return (1);
-		}
-		close(fd);
-		return (0);
-	}
+	dest[i + dest_len] = '\0';
+	return (dest);
 }
