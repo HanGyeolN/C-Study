@@ -6,7 +6,7 @@
 /*   By: hna <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 20:07:44 by hna               #+#    #+#             */
-/*   Updated: 2020/01/29 14:39:57 by hna              ###   ########.fr       */
+/*   Updated: 2020/01/29 14:45:47 by hna              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int				find_idx(char target, char *ref)
 
 long long int	check_str(char *str, char *base, int *idx)
 {
-	int i;
-	int flag;
-	long long int sign;
+	int				i;
+	int				flag;
+	long long int	sign;
 
 	i = -1;
 	flag = 0;
